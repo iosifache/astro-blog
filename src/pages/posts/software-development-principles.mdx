@@ -51,7 +51,7 @@ tags: ["development", "principles", "python"]
 ### Comments
 
 - Use code to document the code.
-  - `employee.isEligibleForFullBenefits()`, not `if (employee.hasFlag(HOURLY) && employee.age > 65) // check if the employee is eligible for full benefits`
+  - `employee.is_eligible_for_full_benefits()`, not `if (employee.has_flag(HOURLY) && employee.age > 65) // check if the employee is eligible for full benefits`
 - Use good comments:
   - Legal, for example copyrights
   - Description of a decision
@@ -76,11 +76,11 @@ tags: ["development", "principles", "python"]
 #### Functionality
 
 - Do one thing.
-  - `savePageToFile` calls multiple functions to: download page and write the content to a file. It does not execute this whole functionality on its own.
+  - `save_page_to_file` calls multiple functions to: download page and write the content to a file. It does not execute this whole functionality on its own.
 - Only one level of abstraction per function
-  - A function `getLinksFromHTMLPage` downloads the page and calls another function to search the effective text with a RegEx (which is at another abstraction level).
+  - A function `get_links_from_html_page` downloads the page and calls another function to search the effective text with a RegEx (which is at another abstraction level).
 - Do only what's expected.
-  - A `checkPassword` function will not initialize a session.
+  - A `check_password` function will not initialize a session.
 
 #### Structure
 
@@ -130,7 +130,7 @@ tags: ["development", "principles", "python"]
 #### Methods
 
 - **Law of Demeter**: A method should not know about the implementation of an object it manipulates.
-  - `user.profilePicture.badge`, not `user.getProfilePicture().getBadge()`.
+  - `user.profile_picture.badge`, not `user.get_profile_picture().get_badge()`.
 - If a method does not use the parent object, transform it into a `@staticmethod`.
 
 #### Members
