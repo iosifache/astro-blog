@@ -10,13 +10,6 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@astrojs/cloudflare@^1.0.2":
-  "integrity" "sha512-jkyaqWmMR6uw44wsGaVIBkdLhxxCj8UkH4RYabJRf0wBHw2dZAzjt38rYMLmW/IIWnu7YHFmYlpK5hU/tNA+Ag=="
-  "resolved" "https://registry.npmjs.org/@astrojs/cloudflare/-/cloudflare-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "esbuild" "^0.14.42"
-
 "@astrojs/compiler@^0.23.4", "@astrojs/compiler@0.18.0 - 0.23.0 || ^0.23.0":
   "integrity" "sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g=="
   "resolved" "https://registry.npmjs.org/@astrojs/compiler/-/compiler-0.23.5.tgz"
@@ -1752,7 +1745,7 @@
   "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.14.54.tgz"
   "version" "0.14.54"
 
-"esbuild@^0.14.0", "esbuild@^0.14.42", "esbuild@^0.14.43", "esbuild@^0.14.47":
+"esbuild@^0.14.0", "esbuild@^0.14.43", "esbuild@^0.14.47":
   "integrity" "sha512-Cy9llcy8DvET5uznocPyqL3BFRrFXSVqbgpMJ9Wz8oVjZlh/zUSNbPRbov0VX7VxN2JH1Oa0uNxZ7eLRb62pJA=="
   "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.14.54.tgz"
   "version" "0.14.54"

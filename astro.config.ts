@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
-import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
 	markdown: {
@@ -21,7 +20,5 @@ export default defineConfig({
 		}),
 		image(),
 		sitemap(),
-	],
-	output: 'server',
-	adapter: cloudflare()
+	]
 });
