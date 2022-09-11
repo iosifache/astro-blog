@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
 	markdown: {
@@ -11,7 +12,8 @@ export default defineConfig({
 			wrap: true,
 		},
 	},
-	site: "https://www.astro-theme-cactus.netlify.app",
+	site: "https://iosifache.me",
+	base: "/",
 	integrations: [
 		mdx({}),
 		tailwind({
@@ -20,4 +22,6 @@ export default defineConfig({
 		image(),
 		sitemap(),
 	],
+	output: 'server',
+	adapter: cloudflare()
 });

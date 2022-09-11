@@ -1,10 +1,10 @@
 const siteMeta = {
-  title: "Astro Theme Cactus",
-  description: "An opinionated starter theme for Astro",
+  title: "@iosifache",
+  description: "Random bits of information",
   lang: "en-GB",
   ogLocale: "en_GB",
-  githubUrl: "https://github.com/chrismwilliams/astro-theme-cactus",
-  themeColorLight: "#fafafa",
+  githubUrl: "https://github.com/iosifache/iosifache.github.io",
+  themeColorLight: "#ffffff",
   themeColorDark: "#1d1f21",
 }
 
