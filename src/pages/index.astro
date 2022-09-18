@@ -1,7 +1,8 @@
 ---
 import PageLayout from "@/layouts/Base";
 import BlogPostPreview from "@/components/BlogPostPreview";
-import { sortMDByDate, getAllTagsWithCount } from "@/util";
+import { sortMDByDate } from "@/util";
+import TagList from "@/components/TagList";
 import type { Post } from "@/types";
 
 const meta = {
@@ -11,7 +12,6 @@ const meta = {
 
 const MAX_POSTS = 10;
 const allPosts = await Astro.glob<Post>("./posts/*.mdx");
-const allTags = getAllTagsWithCount(allPosts);
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
@@ -30,21 +30,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	</section>
 	<section class="mt-16">
 		<h1 class="mb-4 text-xl title">Tags</h1>
-		{
-			Object.keys(allTags).map((tag) => (
-				<li class="flex items-center gap-x-2">
-					<a
-						class="cactus-link inline-block"
-						href={`/tags/${tag}`}
-						title={`View posts with the tag: ${tag}`}
-					>
-						&#35;{tag}
-					</a>
-					<span class="inline-block">
-						- {allTags[tag]} Post{allTags[tag] > 1 && "s"}
-					</span>
-				</li>
-			))
-		}
+		<TagList />
 	</section>
 </PageLayout>
