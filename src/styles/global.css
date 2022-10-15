@@ -2,7 +2,7 @@
 @layer base {
 	:root {
 		color-scheme: light;
-		--theme-bg: 0 0% 98%;
+		--theme-bg: 0 0% 100%;
 		--theme-link: 172 18.1% 41.2%;
 		--theme-text: 202 10.5% 14.9%;
 		--theme-accent: 351 65.9% 48.2%;
