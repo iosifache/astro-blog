@@ -1,12 +1,12 @@
 ---
-layout: "@/layouts/BlogPost"
+layout: "@/layouts/BlogPostWithoutTOC"
 title: Software Development Principles
 publishDate: 11 Sep 2022
 description: Software development principles, seasoned with a bit of Python
 tags: ["development", "principles", "python"]
 ---
 
-## General Principles
+# General Principles
 
 - **Keep it short and simple** (abbreviated KISS)
 - **Boy scout rule**: Leave the code cleaner than you found. This helps for incremental codebase cleanup.
@@ -15,9 +15,9 @@ tags: ["development", "principles", "python"]
 - **You aren't gonna need it** (abbreviated YAGNI): Implement functionality only when you need it.
 - **Open-close**: An entity (function, class, module) should be open to extensions, but close for modifications.
 
-## Contextual
+# Contextual
 
-### Naming
+## Naming
 
 - Use intention-revealing names.
   - `elapsed_time_in_days`, not `d` (context-dependent)
@@ -48,7 +48,7 @@ tags: ["development", "principles", "python"]
 - Make the names context-specific
   - A `zipcode` in a context where `source_address` and `destination_address` can refer to any of them. Transform it into `source_zipcode` or `destination_zipcode`.
 
-### Comments
+## Comments
 
 - Use code to document the code.
   - `employee.is_eligible_for_full_benefits()`, not `if (employee.has_flag(HOURLY) && employee.age > 65) // check if the employee is eligible for full benefits`
@@ -64,16 +64,16 @@ tags: ["development", "principles", "python"]
   - Position markers, such as `// Public methods`
   - Obvious comments, such as `// Defaults constructor`
 
-### Lines of Code
+## Lines of Code
 
 - Declare variables close to their first usage.
 - Avoid multiple `switch` statements. The only ones should occur when creating a class in a factory. Multiples switches are a sign of bad design. Inheritance can be used.
 - Keep lines short (120 characters per line recommended).
 - Use implicit line joining for splitting long lines of text.
 
-### Functions
+## Functions
 
-#### Functionality
+### Functionality
 
 - Do one thing.
   - `save_page_to_file` calls multiple functions to: download page and write the content to a file. It does not execute this whole functionality on its own.
@@ -82,14 +82,14 @@ tags: ["development", "principles", "python"]
 - Do only what's expected.
   - A `check_password` function will not initialize a session.
 
-#### Structure
+### Structure
 
 - Small functions, with 20 LoCs (recommended)
 - Only one indentation level
 - Use structured programming: one entry, one exit.
 - Remove functions that are not called.
 
-#### Arguments
+### Arguments
 
 - Prefer fewer arguments. When over 3 arguments, maybe you can pass a class instead.
 - Avoid output arguments.
@@ -97,19 +97,19 @@ tags: ["development", "principles", "python"]
 - Don't pass `None` to any argument.
 - Annotate their type.
 
-#### Return Value
+### Return Value
 
 - Do not return `None`.
 - Do not return error codes. Raise exception instead.
 - Annotate its type.
 
-#### Documentation
+### Documentation
 
 - Document only the functionalities that are on the edge of the system you design. The others impose friction during implementation.
 
-### Objects and Data Structures
+## Objects and Data Structures
 
-#### Design
+### Design
 
 - Use classes for allowing access to members only through methods. This allows further processing and verifications.
 - Use data structures to group data. The processing is done through another functions.
@@ -122,29 +122,29 @@ tags: ["development", "principles", "python"]
 - **Interface Segregation Principle** (abbreviated ISP): A client should not have access to methods it doesn't use. If a broader interface is used, another interface (called role interface) can be created to limit the exposed methods.
 - **Liskov Substitution Principle** (abbreviated LSP): If a class is substituted with any of its subclasses, the program should work well. This implies that the return types and exceptions types remains the same. In addition, no side effect is introduced.
 
-#### Structure
+### Structure
 
 - Declare instance variables at the top of the class.
 - After the instance variable, place each public function, eventually followed by the private methods it calls.
 
-#### Methods
+### Methods
 
 - **Law of Demeter**: A method should not know about the implementation of an object it manipulates.
   - `user.profile_picture.badge`, not `user.get_profile_picture().get_badge()`.
 - If a method does not use the parent object, transform it into a `@staticmethod`.
 
-#### Members
+### Members
 
 - Annotate types in class beginning.
 - Initialize the members in constructor.
 - Place a `_` in front of the name if the member is protected (that can be used in a subclass) and `__` if it is private (used only in the current class).
 
-### Included Modules
+## Included Modules
 
 - Use only absolute imports.
 - Import only the functionalities that are exposed explicitly by the module (for example, the ones in `__init__.py`). Do not navigate the inwards of the module.
 
-### Source Code Files (or Modules)
+## Source Code Files (or Modules)
 
 - Avoid huge files (over some hundreds LoCs).
 - Place the called functions after the callee. The code can be read as a newspaper.
@@ -157,31 +157,31 @@ tags: ["development", "principles", "python"]
   - Classes
   - Module-level functions
 
-### Third-Party Components
+## Third-Party Components
 
 - Hide third party code with wrapper classes.
 - Translate learning code in unit tests. If something changes in the future versions, the tests will fail.
 - Implement interfaces and dummy classes for upcoming functionalities.
 
-### Whole System
+## Whole System
 
 - Separate the startup process of the application.
 
-## Additional Aspects
+# Additional Aspects
 
-### Formatting
+## Formatting
 
 - Establish formatting rules with your team. Implement them using linters and formatters.
 - Avoid formatting your code manually.
 
-### Error Handling
+## Error Handling
 
 - Use exceptions, not return codes.
 - Define a root exception and inherit from it for each child exception.
 - Provide context to an exception with the help of docstrings and name uniqueness.
 - Push error handling to the edge of each component of the system.
 
-### Unit Testing
+## Unit Testing
 
 - Create a test for each state of a function/object.
   - Test an exception in a function separately, not in the test targeting the normal functioning
@@ -198,11 +198,11 @@ tags: ["development", "principles", "python"]
 - Run all the tests.
 - Use coverage to determine code that is not tested.
 
-### Journaling
+## Journaling
 
 - Avoid `print`. Use logging functionalities instead.
 
-### Configuration
+## Configuration
 
 - **Convention over configuration** (abbreviated CoC): Develop software by establishing "sensible defaults" wrapped into conventions. This will ease the usage compared to the more flexible approach of configuration.
 - Expose the user-configurable aspects via a separate configuration class that parse a configuration file to get its members values.
@@ -210,6 +210,6 @@ tags: ["development", "principles", "python"]
 
 ---
 
-## References
+# References
 
 - [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/book/show/3735293-clean-code)
