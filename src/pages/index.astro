@@ -1,35 +1,15 @@
 ---
 import PageLayout from "@/layouts/Base";
-import BlogPostPreview from "@/components/BlogPostPreview";
-import { sortMDByDate } from "@/util";
-import TagList from "@/components/TagList";
-import type { Post } from "@/types";
+import SkeletonText from "@/components/SkeletonText";
 
 const meta = {
 	title: "Home",
 	description: "Random bits of information",
 };
-
-const MAX_POSTS = 10;
-const allPosts = await Astro.glob<Post>("./posts/*.mdx");
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
 <PageLayout meta={meta}>
-	<section aria-label="Blog post list">
-		<h1 class="mb-4 text-xl title">Posts</h1>
-		<ul class="space-y-4 sm:space-y-2">
-			{
-				allPostsByDate.map((p) => (
-					<li class="[&_q]:w-full flex flex-wrap items-center gap-x-2">
-						<BlogPostPreview post={p} as="h2" />
-					</li>
-				))
-			}
-		</ul>
-	</section>
-	<section class="mt-16">
-		<h1 class="mb-4 text-xl title">Tags</h1>
-		<TagList />
-	</section>
+	<div class="space-y-6">
+		<SkeletonText />
+	</div>
 </PageLayout>
