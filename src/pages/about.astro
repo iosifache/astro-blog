@@ -1,16 +1,20 @@
 ---
 import PageLayout from "@/layouts/Base";
 import SocialList from "@/components/SocialList";
+import SkeletonText from "@/components/SkeletonText";
 
 const meta = {
 	title: "About",
-	description: "I'm a starter theme for Astro",
+	description: "Some personal details",
 };
 ---
 
 <PageLayout meta={meta}>
 	<div class="space-y-6">
 		<h1 class="title">About</h1>
+		<SkeletonText />
+
+		<h1 class="title">Other Corners of The Internet</h1>
 		<SocialList />
 	</div>
 </PageLayout>
