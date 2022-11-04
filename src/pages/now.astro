@@ -1,0 +1,16 @@
+---
+import PageLayout from "@/layouts/Base";
+import SkeletonText from "@/components/SkeletonText";
+
+const meta = {
+	title: "About",
+	description: "Some personal details",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="space-y-6">
+		<h1 class="title">Now</h1>
+		<SkeletonText />
+	</div>
+</PageLayout>
